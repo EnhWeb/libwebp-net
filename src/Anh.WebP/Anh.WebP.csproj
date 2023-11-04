@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>1.23.1104.1612</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Title>Anh.WebP</Title>
+    <Description>Bitmap 转 WebP 图片文件， 支持 .net core 和 .net framework 4.6.1+</Description>
+    <Copyright>anh</Copyright>
+    <PackageProjectUrl>https://github.com/EnhWeb/libwebp-net</PackageProjectUrl>
+    <PackageIcon>avatar.png</PackageIcon>
+    <RepositoryUrl>https://github.com/EnhWeb/libwebp-net</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>anh,webp,image,bitmap</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="avatar.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
