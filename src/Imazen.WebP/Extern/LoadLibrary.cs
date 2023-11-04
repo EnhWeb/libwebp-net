@@ -11,9 +11,22 @@ namespace Imazen.WebP.Extern
 {
     public static class LoadLibrary
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lpFileName"></param>
+        /// <param name="hReservedNull"></param>
+        /// <param name="dwFlags"></param>
+        /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.StdCall)]
         static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hReservedNull, uint dwFlags);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fullPath"></param>
+        /// <param name="throwException"></param>
+        /// <returns></returns>
         public static bool EnsureLoadedByPath(string fullPath, bool throwException)
         {
             //canonicalize as much as we can
@@ -55,7 +68,10 @@ namespace Imazen.WebP.Extern
             return moduleHandle;
         }
 
-  
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="FileNotFoundException"></exception>
         public static void LoadWebPOrFail()
         {
             if (!AutoLoadNearby("libwebp.dll", true))
@@ -72,7 +88,7 @@ namespace Imazen.WebP.Extern
         public static bool AutoLoadNearby(string name, bool throwFailure)
         {
             var a = Assembly.GetExecutingAssembly();
-            return AutoLoad(name, new string[]{Path.GetDirectoryName(a.Location), Path.GetDirectoryName(new Uri(a.CodeBase).LocalPath)},throwFailure,throwFailure);
+            return AutoLoad(name, new string[] { Path.GetDirectoryName(a.Location), Path.GetDirectoryName(new Uri(a.CodeBase).LocalPath) }, throwFailure, throwFailure);
         }
 
         static object lockObj = new object();

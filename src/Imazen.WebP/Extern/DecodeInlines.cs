@@ -100,9 +100,5 @@ namespace Imazen.WebP.Extern {
         //                         stride, uv_stride, NULL);
 
     }
-
-
-
-
 }
 
