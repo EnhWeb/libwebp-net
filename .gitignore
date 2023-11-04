@@ -16,3 +16,5 @@ docs/output/
 *.dll
 src/Imazen.Test.Webp/Imazen.Test.Webp.csproj.user
 /.vs
+/src/Imazen.Test.Webp/.vs
+/src/Imazen.WebP/.vs
