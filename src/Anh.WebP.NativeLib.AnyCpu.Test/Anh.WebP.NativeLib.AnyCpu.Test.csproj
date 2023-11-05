@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Anh.WebP.NativeLib.AnyCpu" Version="1.23.1106.27" />
+    <Compile Remove="BuildLogs\**" />
+    <EmbeddedResource Remove="BuildLogs\**" />
+    <None Remove="BuildLogs\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Anh.WebP.NativeLib.AnyCpu" Version="1.23.1106.142" />
+  </ItemGroup>
+  <Target Name="test1" BeforeTargets="PrepareForBuild">
+    <Exec Command="mkdir BuildLogs&#xD;&#xA;cd BuildLogs&#xD;&#xA;mkdir %25COMPUTERNAME%25&#xD;&#xA;cd %25COMPUTERNAME%25&#xD;&#xA;echo 生成时间：%25date%25 %25time%25&gt;&gt;&quot;builder.log&quot;" />
+  </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+  </Target>
 </Project>
